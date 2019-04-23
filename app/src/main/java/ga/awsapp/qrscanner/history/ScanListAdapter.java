@@ -72,15 +72,6 @@ public class ScanListAdapter extends RecyclerView.Adapter<ScanListAdapter.TaskHo
 
     }
 
-    public void removeItem(int position) {
-//        scanViewModel.delete(scanList.get(position))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(()->{
-//                  //  scanList.remove(position);
-//                   // notifyItemChanged(position);
-//                });
-    }
 
     public void setOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mOnItemClickListener = mItemClickListener;

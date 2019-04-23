@@ -15,11 +15,10 @@ import android.support.v7.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ga.awsapp.qrscanner.R;
-import ga.awsapp.qrscanner.scan.ContinuousCaptureActivity;
+import ga.awsapp.qrscanner.scan.ScanActivity;
 
 
 public class CreateFragment extends Fragment implements View.OnClickListener {
@@ -79,7 +78,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
     void openScan() {
         if (checkPermission()) {
 
-            Intent intent = new Intent(getContext(), ContinuousCaptureActivity.class);
+            Intent intent = new Intent(getContext(), ScanActivity.class);
             startActivity(intent);
 
         } else {
@@ -88,13 +87,6 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
 
 
     }
-//        IntentIntegrator integrator = new IntentIntegrator(getActivity());
-//        integrator.setCameraId(0);
-//        integrator.setCaptureActivity(CustomScannerActivity.class);
-//        integrator.setBeepEnabled(preferences.getBoolean("beep_switch",true));
-//        integrator.setVibrateEnabled(preferences.getBoolean("vibrate_switch",true));
-//        integrator.initiateScan();
-
 
     @Override
     public void onClick(View v) {
@@ -154,7 +146,6 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
     private boolean checkPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
             return false;
         }
         return true;
@@ -172,22 +163,13 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
         switch (requestCode) {
             case CAMERA_PERMISSION_CODE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Intent intent = new Intent(getContext(), ContinuousCaptureActivity.class);
+                    Intent intent = new Intent(getContext(), ScanActivity.class);
                     startActivity(intent);
-                    // main logic
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA)
                                 != PackageManager.PERMISSION_GRANTED) {
-//                            showMessageOKCancel("You need to allow access permissions",
-//                                    new DialogInterface.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(DialogInterface dialog, int which) {
-//                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                                                requestPermission();
-//                                            }
-//                                        }
-//                                    });
+
                         }
                     }
                 }

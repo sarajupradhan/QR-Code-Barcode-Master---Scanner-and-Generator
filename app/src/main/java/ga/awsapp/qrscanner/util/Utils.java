@@ -50,7 +50,6 @@ public  class Utils {
             e.printStackTrace();
         }
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-       // Toast.makeText(, "", Toast.LENGTH_SHORT).show();
         Snackbar.make(view,"saved in master-qr",Snackbar.LENGTH_SHORT).show();
         try {
             outStream.flush();
@@ -65,7 +64,6 @@ public  class Utils {
     public void refreshGallery(File file){
         Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         intent.setData(Uri.fromFile(file));
-        //sendBroadcast(intent);
     }
 
     private File getDisc(){
@@ -114,17 +112,14 @@ public  class Utils {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (context.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
-              //  Log.v(TAG,"Permission is granted");
                 return true;
             } else {
 
-               // Log.v(TAG,"Permission is revoked");
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 return false;
             }
         }
         else {
-           // Log.v(TAG,"Permission is granted");
             return true;
         }
     }

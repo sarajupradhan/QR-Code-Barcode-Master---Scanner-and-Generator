@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.zxing.BarcodeFormat;
-
 import ga.awsapp.qrscanner.R;
 
 public class UrlInputFragment extends Fragment {

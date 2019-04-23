@@ -36,8 +36,8 @@ import static ga.awsapp.qrscanner.main.HomeActivity.QR_STRING;
 import static ga.awsapp.qrscanner.main.HomeActivity.QR_TYPE;
 
 
-public class ContinuousCaptureActivity extends Activity {
-    private static final String TAG = ContinuousCaptureActivity.class.getSimpleName();
+public class ScanActivity extends Activity {
+    private static final String TAG = ScanActivity.class.getSimpleName();
     @BindView(R.id.barcode_scanner) DecoratedBarcodeView barcodeView;
     @BindView((R.id.flash)) ToggleButton flash;
     private BeepManager beepManager;
@@ -61,13 +61,12 @@ public class ContinuousCaptureActivity extends Activity {
                 qrBitmap =  qrCode.getSimpleBitmap(Color.BLACK, null, result.getBarcodeFormat()+"");
                 if (qrBitmap!= null)
                 {
-                Intent intent =  new Intent(ContinuousCaptureActivity.this, DetailsActivity.class);
+                Intent intent =  new Intent(ScanActivity.this, DetailsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 intent.putExtra(QR_STRING,result.getText());
                 intent.putExtra(QR_TYPE,result.getBarcodeFormat().toString());
                 intent.putExtra(ADD_TO_HISTORY,true);
                 intent.putExtra(ADD_TO_CLIP,true);
-                Log.d("checkScanData",result.getText()+" "+result.getBarcodeFormat()+"");
                 startActivity(intent);
 
 
@@ -180,9 +179,9 @@ public class ContinuousCaptureActivity extends Activity {
 
 
     class TorchEventListener implements DecoratedBarcodeView.TorchListener{
-        private ContinuousCaptureActivity activity;
+        private ScanActivity activity;
 
-        TorchEventListener(ContinuousCaptureActivity activity){
+        TorchEventListener(ScanActivity activity){
             this.activity = activity;
         }
 

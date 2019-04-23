@@ -12,9 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-
 import com.google.zxing.BarcodeFormat;
-
 import ga.awsapp.qrscanner.R;
 import ga.awsapp.qrscanner.create.schemes.WiFi;
 
@@ -38,7 +36,7 @@ public class WifiInputFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         final View view = inflater.inflate(R.layout.fragment_wifi_input, container, false);
 
         Button button =  view.findViewById(R.id.create_button);
@@ -54,7 +52,7 @@ public class WifiInputFragment extends Fragment {
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                         View passwdInput = view.findViewById(R.id.password_input);
                         switch (checkedId) {
-                            case R.id.open: // Nice guy :) or maybe not..
+                            case R.id.open:
                                 passwdInput.setEnabled(false);
                                 security = "";
                                 break;

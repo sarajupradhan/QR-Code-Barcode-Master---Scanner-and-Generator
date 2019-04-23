@@ -44,7 +44,7 @@
         <activity android:name=".main.HomeActivity"
             android:configChanges="orientation|screenSize">
         </activity>
-        <activity android:name=".scan.ContinuousCaptureActivity" />
+        <activity android:name=".scan.ScanActivity" />
     </application>
 
 </manifest>

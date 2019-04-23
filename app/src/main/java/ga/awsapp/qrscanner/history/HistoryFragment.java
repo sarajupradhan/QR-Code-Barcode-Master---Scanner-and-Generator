@@ -88,7 +88,6 @@ public class HistoryFragment  extends Fragment {
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                               // Log.d("MainActivity", "Sending atomic bombs to Jupiter");
                                 scanViewModel.deleteAllScans();
                             }
                         })
@@ -136,8 +135,6 @@ public class HistoryFragment  extends Fragment {
 
                 scanListAdapter = new ScanListAdapter(getContext(), mScanList);
                 mRecyclerView.setAdapter(scanListAdapter);
-
-                // Log.e("Adapter",""+items.size());
                 scanListAdapter.setOnItemClickListener(new ScanListAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(String text, String type, int position) {
@@ -175,13 +172,9 @@ public class HistoryFragment  extends Fragment {
                     Bitmap icon;
 
                     if (dX > 0) {
-
-                        //color : left side (swiping towards right)
                         p.setARGB(255, 255, 0, 0);
                         c.drawRect((float) itemView.getLeft(), (float) itemView.getTop(), dX,
                                 (float) itemView.getBottom(), p);
-
-                        // icon : left side (swiping towards right)
                         icon = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.delete);
                         c.drawBitmap(icon,
                                 (float) itemView.getLeft() + convertDpToPx(16),
@@ -189,13 +182,10 @@ public class HistoryFragment  extends Fragment {
                                 p);
                     } else {
 
-                        //color : right side (swiping towards left)
                         p.setARGB(255, 255, 0, 0);
 
                         c.drawRect((float) itemView.getRight() + dX, (float) itemView.getTop(),
                                 (float) itemView.getRight(), (float) itemView.getBottom(), p);
-
-                        //icon : left side (swiping towards right)
                         icon = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.delete);
                         c.drawBitmap(icon,
                                 (float) itemView.getRight() - convertDpToPx(16) - icon.getWidth(),
@@ -203,7 +193,6 @@ public class HistoryFragment  extends Fragment {
                                 p);
                     }
 
-                    // Fade out the view when it is swiped out of the parent
                     final float alpha = ALPHA_FULL - Math.abs(dX) / (float) viewHolder.itemView.getWidth();
                     viewHolder.itemView.setAlpha(alpha);
                     viewHolder.itemView.setTranslationX(dX);

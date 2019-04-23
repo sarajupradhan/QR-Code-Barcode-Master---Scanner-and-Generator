@@ -68,7 +68,6 @@ public class LicencesAdapter extends RecyclerView.Adapter<LicencesAdapter.MyView
             ViewAnimation.expand(lyt, new ViewAnimation.AnimListener() {
                 @Override
                 public void onFinish() {
-                   // Tools.nestedScrollTo(nested_scroll_view, lyt);
                 }
             });
         } else {

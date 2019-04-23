@@ -104,7 +104,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         if (result1 != null && type != null)
         {
-            ////  this operation might invoke null
             QRCode qrCode = new QRCode(result1);
             try {
                 qrBitmap =  qrCode.getSimpleBitmap(Color.BLACK, null, type);

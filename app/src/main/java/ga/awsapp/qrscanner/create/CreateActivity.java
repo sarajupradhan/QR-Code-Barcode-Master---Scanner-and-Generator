@@ -1,6 +1,5 @@
 package ga.awsapp.qrscanner.create;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +19,6 @@ import ga.awsapp.qrscanner.create.input.TextInputFragment;
 import ga.awsapp.qrscanner.create.input.UpdateView;
 import ga.awsapp.qrscanner.create.input.UrlInputFragment;
 import ga.awsapp.qrscanner.create.input.WifiInputFragment;
-import ga.awsapp.qrscanner.viewmodel.ScanViewModel;
-
 import static ga.awsapp.qrscanner.main.HomeActivity.ADD_TO_HISTORY;
 import static ga.awsapp.qrscanner.main.HomeActivity.QR_STRING;
 import static ga.awsapp.qrscanner.main.HomeActivity.QR_TYPE;
