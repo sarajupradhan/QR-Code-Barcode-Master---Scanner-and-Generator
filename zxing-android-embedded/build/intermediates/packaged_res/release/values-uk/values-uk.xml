@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zxing_app_name">Сканер штрих-кодів</string>
+    <string name="zxing_button_ok">OK</string>
+    <string name="zxing_msg_camera_framework_bug">Нажаль, виникла помилка камери. Можливо, вам знадобиться перезавантажити пристрій.</string>
+</resources>

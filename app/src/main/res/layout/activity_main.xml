@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ga.awsapp.qrscanner.nav.NoSwipeViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fragment_main_view_pager"></ga.awsapp.qrscanner.nav.NoSwipeViewPager>
+            </android.support.design.widget.CoordinatorLayout>
+        </FrameLayout>
+
+        <ga.awsapp.qrscanner.nav.NavigationBar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:elevation="6dp"
+            app:labelVisibilityMode="unlabeled"
+            android:background="@android:color/white"
+            app:tabGravity="fill"
+            app:itemIconTint="@drawable/ic_tab_selector"
+            app:itemTextColor="@drawable/ic_tab_selector"
+            app:tabIndicatorColor="@android:color/transparent"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

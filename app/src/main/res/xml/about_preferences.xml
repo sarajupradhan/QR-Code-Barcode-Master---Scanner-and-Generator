@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:title="Supported"
+        android:summary="Know what code and content support"
+        android:key="supports"
+        >
+    </Preference>
+    <Preference
+        android:title="Privacy Policy"
+        android:summary="Read Privacy Policy"
+        android:key="privacy_policy"
+        >
+    </Preference>
+
+    <Preference
+        android:title="Open-source licences"
+        android:summary="Licence details for open source software">
+        <intent android:action="ga.awsapp.qrscanner.LicencesActivity"/>
+    </Preference>
+
+    <Preference
+        android:title="App version"
+        android:summary="1.0">
+    </Preference>
+
+</PreferenceScreen>

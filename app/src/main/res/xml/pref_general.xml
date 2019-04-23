@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="beep_switch"
+        android:summary="Beep when a barcode is scanned"
+        android:title="Beep" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="vibrate_switch"
+        android:summary="Vibrate when a barcode is scanned"
+        android:title="Vibrate" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="auto_copy_switch"
+        android:summary="Copy the scanned tet automatically to your clipboard"
+        android:title="Auto Copy" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="keep_awake_switch"
+        android:summary="Keep the screen always"
+        android:title="Keep Awake" />
+
+</PreferenceScreen>

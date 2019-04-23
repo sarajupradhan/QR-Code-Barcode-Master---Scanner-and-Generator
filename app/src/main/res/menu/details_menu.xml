@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_save"
+        android:title="Item"
+        android:id="@+id/save_image"
+        app:showAsAction="always"
+        />
+    <item android:title="Copy"
+        android:id="@+id/menu_copy"
+        app:showAsAction="never"/>
+    <item android:title="share"
+        android:id="@+id/menu_share"
+        app:showAsAction="never"/>
+</menu>
