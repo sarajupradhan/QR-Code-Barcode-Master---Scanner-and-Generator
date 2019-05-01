@@ -41,7 +41,7 @@ public class EventInputFragment extends Fragment {
 
     private SimpleDateFormat dateFormate;
     private SimpleDateFormat timeFormate;
-    Calendar cal = Calendar.getInstance();
+    Calendar cal;
 
     @BindView(R.id.start_date) TextView startDate;
     @BindView(R.id.end_date) TextView endDate;
@@ -83,26 +83,15 @@ public class EventInputFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Calendar calendar = Calendar.getInstance();
-        currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-        currentMinute = calendar.get(Calendar.MINUTE);
-
-        dateFormate = new SimpleDateFormat("dd MMM yyyy");
-        timeFormate = new SimpleDateFormat("hh:mm aa");
-
-        Date date =  new Date();
-        startDate.setText(dateFormate.format(date));
-        endDate.setText(dateFormate.format(date));
-        startTime.setText(timeFormate.format(date));
-        endTime.setText(timeFormate.format(new Date(System.currentTimeMillis() + 3600 * 1000)));
+        cal = Calendar.getInstance();
+        getCurrent( );
+        setDefaultDate( );
 
     }
 
     @OnClick(R.id.start_date)
      void selectStartDate( )
-    {  year = cal.get(Calendar.YEAR);
-        month = cal.get(Calendar.MONTH);
-        dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+    {
         new DatePickerDialog(getContext(),
                 (datePicker, year, month, day) -> {
                     startDate.setText(formatDate(year,month,day));
@@ -179,10 +168,7 @@ public class EventInputFragment extends Fragment {
              event.setStart(sdf.format(start));
              event.setEnd(sdf.format(end));
              event.setSummary(summery.getText().toString());
-
-            Log.d("checkLogEvent",event.toString());
-
-            mCallback.showQr(event.toString(), BarcodeFormat.QR_CODE.toString());
+             mCallback.showQr(event.toString(), BarcodeFormat.QR_CODE.toString());
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -210,11 +196,30 @@ public class EventInputFragment extends Fragment {
     }
 
     private String formatDate(int year, int month, int day) {
-
         cal.setTimeInMillis(0);
         cal.set(year, month, day);
         Date date = cal.getTime();
         return dateFormate.format(date);
+    }
+
+
+    private void getCurrent( )
+    {   year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
+        dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        currentHour = cal.get(Calendar.HOUR_OF_DAY);
+        currentMinute = cal.get(Calendar.MINUTE);
+    }
+
+    public void setDefaultDate( )
+    {
+        dateFormate = new SimpleDateFormat("dd MMM yyyy");
+        timeFormate = new SimpleDateFormat("hh:mm aa");
+        Date date =  new Date();
+        startDate.setText(dateFormate.format(date));
+        endDate.setText(dateFormate.format(date));
+        startTime.setText(timeFormate.format(date));
+        endTime.setText(timeFormate.format(new Date(System.currentTimeMillis() + 3600 * 1000)));
     }
 
 }

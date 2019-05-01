@@ -66,25 +66,6 @@ public  class Utils {
         intent.setData(Uri.fromFile(file));
     }
 
-    private File getDisc(){
-        String t= getCurrentDateAndTime();
-        File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-        return new File(file, "ImageDemo");
-    }
-
-    private String getCurrentDateAndTime() {
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        String formattedDate = df.format(c.getTime());
-        return formattedDate;
-    }
-
-    public static Bitmap viewToBitmap(View view, int width, int height) {
-        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        view.draw(canvas);
-        return bitmap;
-    }
 
     public void showSupport( Context context) {
         final Dialog dialog = new Dialog(context);
